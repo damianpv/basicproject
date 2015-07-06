@@ -213,7 +213,7 @@ LOGGING = {
 }
 
 #  Mandrill
-MANDRILL_API_KEY = ""
+from settings_db import MANDRILL_API_KEY
 EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
 
 DEFAULT_TO_EMAIL = 'hello@basicproject.com'
