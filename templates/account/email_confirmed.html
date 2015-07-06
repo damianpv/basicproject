@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load account %}
+
+{% block title %}{% trans "Confirm E-mail Address" %}{% endblock %}
+
+{% block login_active %}active{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-xs-12 col-sm-9 col-md-7 col-sm-offset-1 col-md-offset-2">
+        <h2>{% trans "Confirm E-mail Address" %}</h2>
+        <hr class="colorgraph">
+        <div class="row">
+            {% user_display email_address.user as user_display %}
+
+            <p>{% blocktrans with email_address.email as email %}You have confirmed that <a href="mailto:{{email}}">{{ email }}</a> is an e-mail address for user {{ user_display }}.{% endblocktrans %}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block bootstrap3_extra_script %}
+{% endblock %}
