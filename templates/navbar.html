@@ -1,7 +1,7 @@
 {% load i18n %}
 <!-- Fixed navbar -->
 <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
+    <div id="header-container" class="container navbar-container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -13,10 +13,18 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="{% if header_menu == 'home' %}active{% endif %}"><a href="{% url 'go_home' %}">Home</a></li>
-                <li class="{% if header_menu == 'contact' %}active{% endif %}"><a href="#contact">Contact</a></li>
+                <li class="{% if header_menu == 'home' %}active{% endif %}"><a href="{% url 'go_home' %}"><span class="fa fa-home fa-fw"></span> Home</a></li>
+                <li class="{% if header_menu == 'contact' %}active{% endif %}"><a href="#contact"><span class="fa fa-envelope-o fa-fw"></span> Contact</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        Test <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'go_test1' %}">Index 1</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" {% if header_menu == 'test' %}active{% endif %}>
                         Dropdown <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
@@ -36,7 +44,7 @@
                 <li><a href="{% url 'account_signup' %}">Register</a></li>
                 {% else %}
                 <li class="dropdown ">
-                    <a href="http://www.jquery2dotnet.com" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Account <b class="caret"></b></a>
+                    <a href="http://www.jquery2dotnet.com" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-user fa-fw"></span> Account <b class="caret"></b></a>
                     <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
                         <li></li>
                         <li>
