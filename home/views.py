@@ -18,3 +18,12 @@ class Test1View(TemplateView):
         context = super(Test1View, self).get_context_data(**kwargs)
         context['header_menu'] = 'test'
         return context
+
+
+class Test2View(TemplateView):
+    template_name = 'test/index2.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(Test2View, self).get_context_data(**kwargs)
+        context['header_menu'] = 'test'
+        return context
