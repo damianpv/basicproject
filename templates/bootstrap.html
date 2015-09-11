@@ -1,11 +1,8 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-{% load bootstrap3 %}
+{% load staticfiles %}{% load account %}<!DOCTYPE html>{% load url from future %}{% load staticfiles %}{% load bootstrap3 %}
 <html{% if request.LANGUAGE_CODE %} lang="{{ request.LANGUAGE_CODE }}"{% endif %}>
-
 <head>
     <meta charset="utf-8">
-    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block bootstrap3_title %}{% block title %}{% endblock %}{% endblock %}</title>
     {% bootstrap_css %}
@@ -17,12 +14,17 @@
     <![endif]-->
     {% if 'javascript_in_head'|bootstrap_setting %}{% bootstrap_javascript jquery=True %}{% endif %}
     <!-- Custom styles for this template -->
-    <link href="{% static 'css/non-responsive.css' %}" rel="stylesheet">
+    {% comment %}<link href="{% static 'css/non-responsive.css' %}" rel="stylesheet">{% endcomment %}
     <link href="{% static 'css/custom.css' %}" rel="stylesheet">
     <style type="text/css">
         @import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
         .fa-fw {width: 2em;}
     </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
     {% block bootstrap3_extra_head %}{% endblock %}
 </head>
 
