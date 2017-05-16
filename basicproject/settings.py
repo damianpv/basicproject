@@ -79,7 +79,6 @@ INSTALLED_APPS = (
     # 'allauth.socialaccount.providers.weibo',
     # 'allauth.socialaccount.providers.xing',
     'bootstrap3',
-    "djrill",
 
     'accounts',
     'home',
@@ -141,7 +140,12 @@ AUTHENTICATION_BACKENDS = (
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-from settings_db import DATABASES
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase.db',
+    }
+}
 
 
 # Internationalization
@@ -211,16 +215,3 @@ LOGGING = {
         },
     }
 }
-
-#  Mandrill
-from settings_db import MANDRILL_API_KEY
-EMAIL_BACKEND = "djrill.mail.backends.djrill.DjrillBackend"
-
-DEFAULT_TO_EMAIL = 'hello@basicproject.com'
-DEFAULT_FROM_EMAIL = 'no-reply@basicproject.com'
-
-ACCOUNT_AUTHENTICATION_METHOD = "email"  # "username" |  | "username_email"
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_EMAIL_SUBJECT_PREFIX = "Django | "
